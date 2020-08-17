@@ -1,14 +1,11 @@
-node {
-    stage('build-using-scm'){
-     echo 'build';
-     echo '123456';
-    }
-    
-    stage('test-using-scm'){
-     echo 'test';
-    }
-    
-    stage('deploy-using-scm'){
-     echo 'deploy';
+Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent { docker 'maven:3.3.3' }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
 }
